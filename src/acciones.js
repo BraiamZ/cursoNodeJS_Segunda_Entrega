@@ -27,7 +27,6 @@ const crear = (cursos) => {
 const listar = () => {
     try{
         listaCursos = require('../listado.json');
-        console.log('Entra aqui')
     } catch(error){
         console.log('No existe archivo')
         listaCursos = [];
@@ -44,12 +43,37 @@ const guardar = () => {
     })
 }
 
+const eliminar = (deletecurso) => {
+    listar();
+    let noElimina = listaCursos.filter(cur => cur.idCurso != deletecurso.idCurso);
+    if(noElimina.length == listaCursos.length){
+        console.log('Ningun curso a eliminar');
+    }else{
+        listaCursos = noElimina;
+        guardar();
+    }
+}
 
+const deshabilitar = (curso) => {
+    listar();
+    let encontrado = listaCursos.find(buscar => buscar.idCurso == curso.idCurso);
+    console.log(encontrado)
+    if(!encontrado){
+        console.log('No existe estudiante');
+    }
+    else{
+        encontrado.estado = 'noDisponible'
+    }
+
+}
 module.exports = {
     crear,
     //mostrar,
     //mostrarest,
     //mostrarmat,
     //actualizar,
-    //eliminar
+    eliminar,
+    deshabilitar
+    
+    
 };

@@ -3,6 +3,7 @@ let listaInscritos = [];
 
 const inscribir = (aspirante) => {
     listar();
+    let respuesta = false
     let aspi = {
         nombre: aspirante.nombre,
         documento: aspirante.documento,
@@ -11,14 +12,17 @@ const inscribir = (aspirante) => {
         idCurso: aspirante.idCurso
     }
     //console.log(listaCursos)
-    let duplicado = listaInscritos.find(cur => cur.documento == aspirante.documento)
+    let duplicado = listaInscritos.find(cur => cur.documento == aspirante.documento, cur2 => cur2.idCurso == aspirante.idCurso)
     if(!duplicado){
         listaInscritos.push(aspi);
-        guardar();
+        respuesta = guardar();
+        return respuesta;
     }
     else{
         console.log('Ya existe otro estudiante con ese nombre');
+        return respuesta;
     }
+    
 }
 
 const listar = () => {
@@ -38,6 +42,18 @@ const guardar = () => {
         if(err) throw (err);
         console.log('Archivo creado con exito');
     })
+    return true;
+}
+
+const eliminarAspirante = (baja) => {
+    listar();
+    let noElimina = listaInscritos.filter(est => (est.idCurso != baja.idCurso || est.documento != baja.Cedula));
+    if(noElimina.length == listaInscritos.length){
+        console.log('Ningun curso a eliminar');
+    }else{
+        listaInscritos = noElimina;
+        guardar();
+    }
 }
 
 
@@ -47,5 +63,6 @@ module.exports = {
     //mostrarest,
     //mostrarmat,
     //actualizar,
-    //eliminar
+    //eliminar,
+    eliminarAspirante
 };

@@ -1,2 +1,34 @@
-{{{listarCursos}}}
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--Bootstrap css -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"  type="text/css">
+    <title>Título de la Página</title>       	
+    </head>
+    <body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    {{{navBar}}}
+    <div class="container">
+    {{!-- {{{listarcursosbasico}}} --}}
+    {{{listarCursos}}}
+    <form action="/deshabilitar" method="POST">
+        Deshabilitar Curso<input type="number" name="curso"/>
+        <button>Deshabilitar</button>
+    </form>
+    <form action="/eliminarCurso" method="POST">
+        Eliminar Curso<input type="number" name="eliminarCurso"/>
+        <button>Eliminar</button>
+    </form>
+    <form action="/listadoCursos" method="POST">
+        Documento Estudiante<input type="number" name="documentoAspirante"/>
+        Id Curso<input type="number" name="IdCurso"/>
+        <button>Eliminar Alumno</button>
+    </form>
+    </div>
+    </body>
     
+</html>
+

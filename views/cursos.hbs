@@ -1,15 +1,46 @@
-<div>
-    <div>Inscripcion de cursos</div>
+<link rel="stylesheet" href="/css/bootstrap.min.css"  type="text/css">
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+{{{navBar}}}
+<div clas="container">
+    <div class="col-6">
+        <h3>Inscripcion a cursos</h3>
+    </div>
     <div>
         <form action="/" method="POST">
-        ID Curso<input type="number" name="idCurso" required/>
-        Nombre Curso<input type="text" name="nombreCurso" required/>
-        Descripcion<input type="textarea" name="descripcion" required/>
-        Valor<input type="number" name="valor"/>
-        Modalidad<input type="text" name="modalidad"/>
-        Intensidad Horaria<input type="number" name="intensidad"/>
-        <button>Ingresar Curso</button>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">ID Curso</label>
+                <input type="number" name="idCurso" required/>
+            </div>
+            <div class="form-group col-md-4">
+            <label for="inputPassword4"> Nombre Curso</label>
+            <input type="text" name="nombreCurso" required/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Descripcion</label>
+                <input type="textarea" name="descripcion" required/>
+            </div>
+            <div class="form-group col-md-4">
+            <label for="inputPassword4">Valor</label>
+            <input type="number" name="valor"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Modalidad</label>
+                <input type="text" name="modalidad"/>
+            </div>
+            <div class="form-group col-md-4">
+            <label for="inputPassword4">Intensidad Horaria</label>
+            <input type="number" name="intensidad"/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar Curso</button>
         </form>
-        
+        </div>
     </div>
-</div>
+{{>footer}}

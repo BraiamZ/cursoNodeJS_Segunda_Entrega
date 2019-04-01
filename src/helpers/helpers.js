@@ -150,3 +150,5 @@ hbs.registerHelper('listarcursosbasico', () => {
     texto = texto + '</tbody> </table> </div>';
     return texto;
 })
+
+// Prueba Git
